@@ -4,13 +4,17 @@
     <h1>{{ msg }}</h1>
     <h2>Example</h2>
     <ul>
-      <li @click="chapter=4">2.4 필터로 통화 서식 지정</li>
-      <li @click="chapter=5">2.5 필터로 날짜 서식 지정</li>
-      <li @click="chapter=6">2.6 조건부로 엘리먼트 표시 및 숨기기</li>
+      <li @click="chapter='2.4'">2.4 필터로 통화 서식 지정</li>
+      <li @click="chapter='2.5'">2.5 필터로 날짜 서식 지정</li>
+      <li @click="chapter='2.6'">2.6 조건부로 엘리먼트 표시 및 숨기기</li>
+      <li @click="chapter='4.5'">4.5 자식 컴포넌트 상태 읽기</li>
+      <li @click="chapter='4.6'">4.6 컴포넌트에서 다른 컴포넌트 사용하기</li>
     </ul>
-    <currency-filter v-if="chapter == 4"></currency-filter>
-    <date-filter v-if="chapter == 5"></date-filter>
-    <element-condition v-if="chapter == 6"></element-condition>
+    <currency-filter v-if="chapter == '2.4'"></currency-filter>
+    <date-filter v-if="chapter == '2.5'"></date-filter>
+    <element-condition v-if="chapter == '2.6'"></element-condition>
+    <child-stomach v-if="chapter == '4.5'" />
+    <restaurant-menu v-if="chapter == '4.6'" />
   </div>
 </template>
 
@@ -19,15 +23,24 @@ import CurrencyFilter from "./components/CurrencyFilter.vue";
 import DateFilter from "./components/DateFilter.vue";
 import ElementCondition from "./components/ElementCondition.vue";
 
+import ChildStomach from "./components/ChildStomach.vue";
+import RestaurantMenu from "./components/RestaurantMenu.vue";
+
 export default {
   name: 'app',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      chapter: 0
+      chapter: ""
     }
   },
-  components: { CurrencyFilter, DateFilter, ElementCondition }
+  components: {
+    CurrencyFilter,
+    DateFilter,
+    ElementCondition,
+    ChildStomach,
+    RestaurantMenu
+  }
 }
 </script>
 
