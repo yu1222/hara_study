@@ -1,6 +1,6 @@
 <template>
 <section class="course">
-  <dish v-for="ham in menu" :ham="ham"></dish>
+  <dish v-for="(ham, index) in menu" :class="index" :key="index" :ham="ham" />
 </section>
 </template>
 
