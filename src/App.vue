@@ -11,6 +11,7 @@
       <li @click="chapter='4.6'">4.6 컴포넌트에서 다른 컴포넌트 사용하기</li><br>
       <li @click="chapter='6.3'">6.3 이름을 가진 동적 라우트 사용하기</li>
       <router-link to="list" @click.native="chapter='6.4'">6.4 페이지에 router-view 하나 이상 배치하기</router-link>
+      <li @click="chapter='10.3'">10.3 Vuex에서 변이(Mutations) 이해하기</li>
     </ul>
     <currency-filter v-if="chapter == '2.4'"></currency-filter>
     <date-filter v-if="chapter == '2.5'"></date-filter>
@@ -19,6 +20,7 @@
     <restaurant-menu v-if="chapter == '4.6'" />
     <chapter-six v-if="chapter == '6.3'" />
     <hardware v-if="chapter == '6.4'" />
+    <broadcast v-if="chapter == '10.3'" />
   </div>
 </template>
 
@@ -32,6 +34,8 @@ import RestaurantMenu from "./components/RestaurantMenu.vue";
 
 import ChapterSix from "./components/chapter6/Chapter6.vue";
 import Hardware from "./components/chapter6/Hardware.vue";
+
+import Broadcast from "./components/chapter10/Broadcast.vue";
 
 export default {
   name: 'app',
@@ -48,7 +52,8 @@ export default {
     ChildStomach,
     RestaurantMenu,
     ChapterSix,
-    Hardware
+    Hardware,
+    Broadcast
   }
 }
 </script>
