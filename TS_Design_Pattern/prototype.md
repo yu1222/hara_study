@@ -2,7 +2,7 @@
 
 * 자바스크립트 자체가 프로토타입 기반 프로그래밍 언어이여서, 무의식적으로 항상 프로토타입 관련 패턴을 사용했을 것
 * 앞에서 본 예제
-```
+```ts
 class FreightRocketFactory implements RocketFactory<FreightRocket> {
         
         createRocket(): FreightRocket {
@@ -11,12 +11,12 @@ class FreightRocketFactory implements RocketFactory<FreightRocket> {
         // ...
 }
 ```
-    * new 연산을 수행해서 단지 클래스명만 변경할 목적으로 서브 클래스를 추가하기도 함
-    * 단일 클래스의 인스턴스는 일반적으로 동일한 메서드와 프로피티를 공유하므로<br>기존 인스턴스 하나를 클론하여 새로운 인스턴스를 생성할 수 있음
+* new 연산을 수행해서 단지 클래스명만 변경할 목적으로 서브 클래스를 추가하기도 함
+* 단일 클래스의 인스턴스는 일반적으로 동일한 메서드와 프로피티를 공유하므로<br>기존 인스턴스 하나를 클론하여 새로운 인스턴스를 생성할 수 있음
 
 * `clone` 메소드가 수행할 작업을 `new Constructor()`가 수행하는 것
     * 그래서 생성자가 어떤 면에서 팩토리의 역할을 수행할 수 있음
-    ```
+    ```ts
     interface Constructor<T> {
     	new (): T;
     }
@@ -26,9 +26,10 @@ class FreightRocketFactory implements RocketFactory<FreightRocket> {
     }
     ```
 * 자바스크립트에서 프로토타입 패턴을 이야기할 때 쉽게 간과하는 것
-		* 상태가 있는 복제
-		* ES6도 Class 문법설탕을 이용해 실제 프로토타입을 직접 수정할 수도 있음
-```
+  * 상태가 있는 복제
+  * ES6도 Class 문법설탕을 이용해 실제 프로토타입을 직접 수정할 수도 있음
+    
+```ts
 class Base {
 	state: number;
 }
